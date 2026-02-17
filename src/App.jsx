@@ -1,6 +1,9 @@
 import React from 'react'
 import {Route, Routes} from 'react-router-dom'
 import Home from './pages/Home'
+import axios from 'axios'
+import Products from './pages/Products'
+import ProductDetails from './pages/ProductDetails'
 
 const App = () => {
   return (
