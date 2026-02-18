@@ -9,7 +9,7 @@ const Home = () => {
         <h2>This is Home Page</h2>
         <button className='cta'
         onClick={()=>{
-            navigate('/product')
+            navigate('/products')
         }}>
             Explore All products
         </button>
