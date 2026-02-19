@@ -45,10 +45,17 @@
      transform: translate(-50%,-50%);
      text-align: center;
  }
- .home h1{
+
+ .Home h2{
      font-size:100px;
      margin-bottom: 20px;
      font-weight: 400;
+ }
+
+ .Home button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
  .cta{
      padding: 20px 45px;
