@@ -1,27 +1,33 @@
 import React, { useContext } from 'react'
 import { ProductDataContext } from '../context/ProductContext'
 import { Link } from 'react-router-dom'
-const Products = () => {
 
+const Products = () => {
   const productData = useContext(ProductDataContext)
 
-  let renderData = 'Loading...'
+  console.log("Products sees:", productData)
 
-  if(productData.length > 0){
-    renderData = productData.map(function (elem, idx) {
-      return <Link className='product' key={idx} to={`/products/${elem.id}`}>
+  if (!productData || productData.length === 0) {
+    return <h2>Loading...</h2>
+  }
+
+  return (
+    <div className='allProducts'>
+      {productData.map((elem) => (
+        <Link
+          className='product'
+          key={elem.id}
+          to={`/products/${elem.id}`}
+        >
           <div>
             <img src={elem.image} alt="" />
             <h2>{elem.title}</h2>
           </div>
-          </Link>
-    })
-  }
-  return (
-    <div className='allProducts'>
-      {renderData}
+        </Link>
+      ))}
     </div>
   )
 }
+
 
 export default Products

@@ -1,26 +1,26 @@
 import { createContext, useEffect, useState } from 'react'
-import {getAllProductData} from '../api/productApi'
+import { getAllProductData } from '../api/productApi'
 
-export const ProductDataContext = createContext()
+export const ProductDataContext = createContext([])
 
-const ProductContext = () => {
+const ProductContext = ({ children }) => {
 
-    const [productData, setproductData] = useState([])
+  const [productData, setProductData] = useState([])
 
-    const setData = async ()=>{
-        setproductData(await getAllProductData())
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getAllProductData()
+      console.log("Fetched Data:", data)
+      setProductData(data)
     }
 
-    useEffect(function(){
-        setData
-    },[])
+    fetchData()
+  }, [])
 
   return (
-    <div>
-        <ProductDataContext.Provider value={productData}>
-            {props.children}
-        </ProductDataContext.Provider>
-    </div>
+    <ProductDataContext.Provider value={productData}>
+      {children}
+    </ProductDataContext.Provider>
   )
 }
 

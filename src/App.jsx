@@ -8,6 +8,7 @@ import ProductDetails from './pages/ProductDetails'
 const App = () => {
   return (
     <div>
+       <h1 style={{color: "red"}}>APP IS RUNNING</h1>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/products' element={<Products />}/>
